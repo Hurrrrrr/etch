@@ -1,38 +1,31 @@
 "use strict";
 
-const GRID = 5;
+// Variable to store the desired size of the grid
+const GRID = 6;
+const myScale = 960 / GRID;
 
 makeGrid(GRID);
 
-// Make <scale> columns which will be filled with the individual grid squares
-function makeGridCol(scale) {
+function makeGrid(scale) {
     const squaresWrap = document.querySelector('#squaresWrap');
 
     for (let i = 0; i < scale; i++) {
-        const colWrap = document.createElement('span');
+        const colWrap = document.createElement('div');
         colWrap.classList.add('colWrap');
-    
         squaresWrap.appendChild(colWrap);
-        makeSquare(scale);
+
+        for (let j = 0; j < scale; j++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            colWrap.appendChild(square);
+            square.style.height = myScale + "px";
+            square.style.width = myScale + "px";
+        }
     }
+
+
 }
 
-// Make a square
-function makeSquare(quantity) {
-    const colWrap = document.querySelector('.colWrap');
-
-    for (let j = 0; j < quantity; j++) {
-        const square = document.createElement('span');
-        square.classList.add('square');
-    
-        colWrap.appendChild(square);
-    }
-}
-
-// Make the grid of <size> squares
-function makeGrid(size) {
-    makeGridCol(size);
-}
 
 
 
