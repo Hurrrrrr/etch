@@ -1,2 +1,3 @@
 # etch
-Etch-a-Sketch website
+This is my second Javascript project, a website which has an
+etch-a-sketch themed display

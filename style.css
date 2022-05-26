@@ -1,0 +1,25 @@
+.header {
+    background-color: #696969;
+}
+
+#resetButton {
+    font-family: Helvetica, sans-serif;
+    background-color: #F8F8FF;
+    color: #2F4F4F;
+}
+
+#squaresWrap {
+    display: flex;
+    background-color: #2F4F4F;
+    width: 960px;
+    height: 960px;
+    padding: 10px;
+}
+
+.colWrap {
+    flex: 1;
+}
+
+.square {
+    background-color: rgb(250, 250, 250);
+}
