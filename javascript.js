@@ -1,10 +1,17 @@
 "use strict";
 
 // Variable to store the desired size of the grid
-const GRID = 6;
+const GRID = 3;
 const myScale = 960 / GRID;
 
 makeGrid(GRID);
+
+const hover = document.getElementsByClassName("square");
+
+for (let i = 0; i < hover.length; i++) {
+    hover[i].addEventListener("mouseenter", changeColor);
+    console.log(`Listener added to ${hover[i]}`);
+}
 
 function makeGrid(scale) {
     const squaresWrap = document.querySelector('#squaresWrap');
@@ -26,6 +33,10 @@ function makeGrid(scale) {
 
 }
 
+function changeColor() {
+    // const pixel =  document.querySelector('.square');
+    console.log("hoever");
+}
 
 
 

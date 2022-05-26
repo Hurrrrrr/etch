@@ -22,4 +22,6 @@
 
 .square {
     background-color: rgb(250, 250, 250);
+    border: 5px solid black;
+    box-sizing: border-box;
 }
