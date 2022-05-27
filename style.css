@@ -25,3 +25,7 @@
     border: 5px solid black;
     box-sizing: border-box;
 }
+
+.etched {
+    background-color: #2F4F4F;
+}

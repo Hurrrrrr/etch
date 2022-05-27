@@ -10,7 +10,6 @@ const hover = document.getElementsByClassName("square");
 
 for (let i = 0; i < hover.length; i++) {
     hover[i].addEventListener("mouseenter", changeColor);
-    console.log(`Listener added to ${hover[i]}`);
 }
 
 function makeGrid(scale) {
@@ -34,8 +33,9 @@ function makeGrid(scale) {
 }
 
 function changeColor() {
-    // const pixel =  document.querySelector('.square');
+    const pixel = document.querySelector('.square');
     console.log("hoever");
+    pixel.classList.add('etched');
 }
 
 
