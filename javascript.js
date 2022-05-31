@@ -1,16 +1,10 @@
 "use strict";
 
 // Variable to store the desired size of the grid
-const GRID = 3;
+const GRID = 8;
 const myScale = 960 / GRID;
 
 makeGrid(GRID);
-
-const hover = document.getElementsByClassName("square");
-
-for (let i = 0; i < hover.length; i++) {
-    hover[i].addEventListener("mouseenter", changeColor);
-}
 
 function makeGrid(scale) {
     const squaresWrap = document.querySelector('#squaresWrap');
@@ -24,6 +18,7 @@ function makeGrid(scale) {
             const square = document.createElement('div');
             square.classList.add('square');
             colWrap.appendChild(square);
+            square.addEventListener("mouseenter", changeColor);
             square.style.height = myScale + "px";
             square.style.width = myScale + "px";
         }
@@ -32,15 +27,23 @@ function makeGrid(scale) {
 
 }
 
-function changeColor() {
-    const pixel = document.querySelector('.square');
-    console.log("hoever");
-    pixel.classList.add('etched');
+function changeColor(e) {
+    e.target.classList.add('etched');
 }
 
 
 
 /*
+
+The callback function of addEventListener has an event argument
+that you could use to receive relative info. You could use that
+to receive the node which that event trigged on. IF you don't
+remember how, reread Event section of the DOM lesson could be helpful
+
+
+
+
+
 snaitseb — Today at 5:43 PM
 Almost! Check  this out:
 *{
