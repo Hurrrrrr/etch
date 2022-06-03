@@ -1,19 +1,33 @@
 "use strict";
 
-// Variable to store the desired size of the grid
-const GRID = 8;
-const myScale = 960 / GRID;
+// Variables to store user input and validate it
+let myInput = 0;
+let isValid = false;
+const regex = /^\d{1,3}$/;
 
-makeGrid(GRID);
+// Prompt the user for a valid grid size
+do {
+    myInput = prompt("Enter grid size");
+    isValid = validateInput(myInput);
+} while (!isValid)
+
+const grid = parseInt(myInput);
+const myScale = 960 / grid;
+
+makeGrid(grid);
+
+
 
 function makeGrid(scale) {
     const squaresWrap = document.querySelector('#squaresWrap');
 
+    // Create <scale> columns
     for (let i = 0; i < scale; i++) {
         const colWrap = document.createElement('div');
         colWrap.classList.add('colWrap');
         squaresWrap.appendChild(colWrap);
 
+        // Create <scale> squares in one column on each iteration
         for (let j = 0; j < scale; j++) {
             const square = document.createElement('div');
             square.classList.add('square');
@@ -31,6 +45,19 @@ function changeColor(e) {
     e.target.classList.add('etched');
 }
 
+function validateInput(uInput) {
+    if (!regex.test(uInput)) {
+        alert("Please enter an integer between 1 and 100");
+        return false;
+    }
+
+    if ((uInput < 1) || (uInput > 100)) {
+        alert("Please enter an integer between 1 and 100");
+        return false;
+    }
+
+    return true;
+}
 
 
 /*
