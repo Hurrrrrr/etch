@@ -5,15 +5,12 @@ const regex = /^\d{1,3}$/;
 
 let gridInput = getInput();
 
-const grid = parseInt(gridInput);
-const myScale = 960 / grid;
-
-
-makeGrid(grid);
+makeGrid(parseInt(gridInput));
 
 
 
 function makeGrid(scale) {
+    const myScale = 960 / scale;
     const squaresWrap = document.querySelector('#squaresWrap');
 
     // Create <scale> columns
